@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Magic App Kotlin</string>
+    <string name="app_name">Magic: Deck Builder</string>
+
+    <!--Card colors-->
+    <string name="color_black">Black</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_green">Green</string>
+    <string name="color_red">Red</string>
+    <string name="color_white">White</string>
+
+    <!--Card rarities-->
+    <string name="rarity_common">Common</string>
+    <string name="rarity_uncommon">Uncommon</string>
+    <string name="rarity_rare">Rare</string>
+    <string name="rarity_mythic">Mythic Rare</string>
+
+    <!--Card languages-->
+    <string name="language_en">en</string>
+    <string name="language_de">de</string>
+    <string name="language_ko">ko</string>
+    <string name="language_fr">fr</string>
+    <string name="language_it">it</string>
+    <string name="language_es">es</string>
+    <string name="language_pt">pt</string>
+    <string name="language_jp">jp</string>
+    <string name="language_cn">cn</string>
+    <string name="language_ru">ru</string>
 </resources>

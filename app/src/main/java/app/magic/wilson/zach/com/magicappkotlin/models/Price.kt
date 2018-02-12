@@ -4,10 +4,10 @@ import com.github.kittinunf.fuel.core.ResponseDeserializable
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.Reader
-import java.util.*
+import java.util.Date
 
 /**
- * Created by Zach on 2/10/18.
+ * A Price model for each Card's various prices.
  */
 data class Price(
         val high: Double,

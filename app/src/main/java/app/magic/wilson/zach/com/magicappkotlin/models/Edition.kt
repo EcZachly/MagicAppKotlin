@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken
 import java.io.Reader
 
 /**
- * Created by Zach on 2/10/18.
+ * An Edition model for the types of Card editions.
  */
 data class Edition(
         val set: String,

@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         cardList.layoutManager = linearLayoutManager
         val activity = this
         clickForCards.setOnClickListener {
-            getCards("red", "mythic").responseObject<List<Card>>{
+            getCards(this,"red", "mythic").responseObject<List<Card>>{
                 _, _, result ->
                 val adapter = CardAdapter(activity, result.get())
                 cardList.adapter = adapter

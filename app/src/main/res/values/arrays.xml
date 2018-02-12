@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="card_colors_array">
+        <item>@string/color_black</item>
+        <item>@string/color_blue</item>
+        <item>@string/color_green</item>
+        <item>@string/color_red</item>
+        <item>@string/color_white</item>
+    </array>
+
+    <array name="card_rarities_array">
+        <item>@string/rarity_common</item>
+        <item>@string/rarity_uncommon</item>
+        <item>@string/rarity_rare</item>
+        <item>@string/rarity_mythic</item>
+    </array>
+
+    <array name="card_languages_array">
+        <item>@string/language_en</item>
+        <item>@string/language_de</item>
+        <item>@string/language_ko</item>
+        <item>@string/language_fr</item>
+        <item>@string/language_it</item>
+        <item>@string/language_es</item>
+        <item>@string/language_pt</item>
+        <item>@string/language_jp</item>
+        <item>@string/language_cn</item>
+        <item>@string/language_ru</item>
+    </array>
+</resources>

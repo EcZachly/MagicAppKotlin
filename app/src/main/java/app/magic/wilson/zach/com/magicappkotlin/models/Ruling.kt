@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken
 import java.io.Reader
 
 /**
- * Created by Zach on 2/10/18.
+ * A Ruling model.
  */
 
 
