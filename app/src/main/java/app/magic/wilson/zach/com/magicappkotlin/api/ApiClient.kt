@@ -19,11 +19,6 @@ fun getCards(context: Context, color: String?, rarity: String?) : Request {
 
     // if the language is supported, then filter the card results to that language.
     // Otherwise default to English
-    if (validLanguages.contains(deviceLanguage)) {
-        return Fuel.get("/mtg/cards", listOf("language" to deviceLanguage,
-                "colors" to color, "rarity" to rarity))
-    }
-
-    return Fuel.get("/mtg/cards", listOf("language" to "en",
-            "colors" to color, "rarity" to rarity))
+    val filterLanguage = if (validLanguages.contains(deviceLanguage)) deviceLanguage else "en"
+    return Fuel.get("/mtg/cards", listOf("language" to filterLanguage, "colors" to color, "rarity" to rarity))
 }
