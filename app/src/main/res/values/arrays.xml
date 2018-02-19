@@ -15,6 +15,25 @@
         <item>@string/rarity_mythic</item>
     </array>
 
+    <array name="card_types_array">
+        <item>@string/type_enchantment</item>
+        <item>@string/type_land</item>
+        <item>@string/type_creature</item>
+        <item>@string/type_instant</item>
+        <item>@string/type_artifact</item>
+        <item>@string/type_sorcery</item>
+        <item>@string/type_summon</item>
+        <item>@string/type_enchant</item>
+        <item>@string/type_player</item>
+        <item>@string/type_interrupt</item>
+        <item>@string/type_tribal</item>
+        <item>@string/type_planeswalker</item>
+        <item>@string/type_plane</item>
+        <item>@string/type_conspiracy</item>
+        <item>@string/type_scheme</item>
+        <item>@string/type_phenomenon</item>
+    </array>
+
     <array name="card_languages_array">
         <item>@string/language_en</item>
         <item>@string/language_de</item>

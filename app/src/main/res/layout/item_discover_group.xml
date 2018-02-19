@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--TODO: Replace Android placeholder with custom images-->
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/discover_group_image"
+    android:layout_width="@dimen/group_size"
+    android:layout_height="@dimen/group_size"
+    android:layout_margin="@dimen/small_horizontal_margin"
+    android:src="@mipmap/ic_launcher" />

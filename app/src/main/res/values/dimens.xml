@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Global values-->
+    <dimen name="standard_vertical_margin">16dp</dimen>
+    <dimen name="standard_horizontal_margin">16dp</dimen>
+    <dimen name="small_vertical_margin">8dp</dimen>
+    <dimen name="small_horizontal_margin">8dp</dimen>
+
+    <!--DiscoverActivity values-->
+    <dimen name="group_size">75dp</dimen>
+
+    <!--Text sizes-->
+    <dimen name="discover_heading_size">16sp</dimen>
+</resources>

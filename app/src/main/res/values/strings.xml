@@ -14,6 +14,24 @@
     <string name="rarity_rare">Rare</string>
     <string name="rarity_mythic">Mythic Rare</string>
 
+    <!--Card types-->
+    <string name="type_enchantment">Enchantment</string>
+    <string name="type_land">Land</string>
+    <string name="type_creature">Creature</string>
+    <string name="type_instant">Instant</string>
+    <string name="type_artifact">Artifact</string>
+    <string name="type_sorcery">Sorcery</string>
+    <string name="type_summon">Summon</string>
+    <string name="type_enchant">Enchant</string>
+    <string name="type_player">Player</string>
+    <string name="type_interrupt">Interrupt</string>
+    <string name="type_tribal">Tribal</string>
+    <string name="type_planeswalker">Planeswalker</string>
+    <string name="type_plane">Plane</string>
+    <string name="type_conspiracy">Conspiracy</string>
+    <string name="type_scheme">Scheme</string>
+    <string name="type_phenomenon">Phenomenon</string>
+
     <!--Card languages-->
     <string name="language_en">en</string>
     <string name="language_de">de</string>
@@ -25,4 +43,15 @@
     <string name="language_jp">jp</string>
     <string name="language_cn">cn</string>
     <string name="language_ru">ru</string>
+
+    <!--Home screen / DiscoverActivity labels-->
+    <string name="discover_new">New</string>
+    <string name="discover_recommended">Recommended</string>
+    <string name="discover_colors">Colors</string>
+    <string name="discover_rarity">Rarity</string>
+    <string name="discover_types">Types</string>
+    <string name="discover_subtypes">Subtypes</string>
+    <string name="discover_sets">Sets</string>
+
+
 </resources>

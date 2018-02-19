@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 /**
  * An adapter to display the Magic card images.
  */
+
 class CardAdapter(private var activity: Activity, private var cards: List<Card>): RecyclerView.Adapter<CardAdapter.ViewHolder>(){
 
     override fun getItemCount(): Int {
@@ -22,7 +23,7 @@ class CardAdapter(private var activity: Activity, private var cards: List<Card>)
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent?.getContext())
                 .inflate(R.layout.item_card, parent, false)
-        val imageView = itemView?.findViewById(R.id.cardImage) as ImageView
+        val imageView = itemView?.findViewById<ImageView>(R.id.cardImage) as ImageView
         return ViewHolder(itemView, imageView)
     }
 
