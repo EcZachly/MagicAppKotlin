@@ -9,6 +9,10 @@
     <!--DiscoverActivity values-->
     <dimen name="group_size">75dp</dimen>
 
+    <!--SearchDialog values-->
+    <dimen name="toggle_btn_stroke_width">4dp</dimen>
+    <dimen name="color_checkbox_size">48dp</dimen>
+
     <!--Text sizes-->
     <dimen name="discover_heading_size">16sp</dimen>
 </resources>

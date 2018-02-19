@@ -53,5 +53,13 @@
     <string name="discover_subtypes">Subtypes</string>
     <string name="discover_sets">Sets</string>
 
+    <!--DiscoverActivity menu items-->
+    <string name="search">Search</string>
+    <string name="view_saved_searches">Starred Searches</string>
+
+    <!--Search dialog field-->
+    <string name="tags">Tags</string>
+    <string name="tags_hint">Search&#8230;(e.g. planeswalker, goblin, etc.)</string>
+    <string name="save_search_btn">Save Search</string>
 
 </resources>

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.Menu
+import android.view.MenuItem
 import app.magic.wilson.zach.com.magicappkotlin.adapters.DiscoverAdapter
 import kotlinx.android.synthetic.main.activity_discover.*
 
@@ -51,5 +53,20 @@ class DiscoverActivity : AppCompatActivity() {
         recyclerView.layoutManager = linearLayoutManager
         val adapter = DiscoverAdapter(this, array)
         recyclerView.adapter = adapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.discover, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+//            TODO("Implement search action")
+            R.id.action_search -> {}
+//            TODO("Implement view saved searches action")
+            R.id.action_view_starred -> {}
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
