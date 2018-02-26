@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
 
-    <!--TODO: Pick some actual nice colors here-->
+    <!--App theme colors-->
+    <color name="colorPrimaryLight">#cfcfcf</color>
+    <color name="colorPrimary">#9E9E9E</color>
+    <color name="colorPrimaryDark">#707070</color>
+
+    <color name="colorAccentLight">#ffff52</color>
+    <color name="colorAccent">#ffd600</color>
+    <color name="colorAccentDark">#c7a500</color>
+
+    <color name="textLight">#DDDDDD</color>
+    <color name="textDark">#000000</color>
+
     <!--Card colors-->
-    <color name="card_color_black">#000000</color>
-    <color name="card_color_blue">#0000FF</color>
-    <color name="card_color_green">#00FF00</color>
-    <color name="card_color_red">#FF0000</color>
-    <color name="card_color_white">#FFFFFF</color>
+    <color name="cardColorBlackDark">#1c1c1c</color>
+    <color name="cardColorBlackLight">#6a6a6a</color>
+    <color name="cardColorBlueDark">#003366</color>
+    <color name="cardColorBlueLight">#00aadb</color>
+    <color name="cardColorGreenDark">#006633</color>
+    <color name="cardColorGreenLight">#0aca03</color>
+    <color name="cardColorRedDark">#701000</color>
+    <color name="cardColorRedLight">#d00000</color>
+    <color name="cardColorWhiteDark">#c8cbb4</color>
+    <color name="cardColorWhiteLight">#f1f3e5</color>
+
+
 </resources>

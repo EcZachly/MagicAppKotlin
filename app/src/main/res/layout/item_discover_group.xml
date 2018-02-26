@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--TODO: Replace Android placeholder with custom images-->
-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/discover_group_image"
-    android:layout_width="@dimen/group_size"
-    android:layout_height="@dimen/group_size"
-    android:layout_margin="@dimen/small_horizontal_margin"
-    android:src="@mipmap/ic_launcher" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/discover_group_size"
+    android:layout_height="@dimen/discover_group_size">
+
+    <ImageView
+        android:id="@+id/discover_group_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/small_horizontal_margin"
+        android:contentDescription="@null"
+        android:src="@drawable/discover_group_base" />
+
+    <TextView
+        android:id="@+id/discover_group_lbl"
+        style="@style/discover_group_lbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

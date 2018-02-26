@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Magic: Deck Builder</string>
 
     <!--Card colors-->
@@ -13,6 +13,7 @@
     <string name="rarity_uncommon">Uncommon</string>
     <string name="rarity_rare">Rare</string>
     <string name="rarity_mythic">Mythic Rare</string>
+    <string name="rarity_legendary">Legendary</string>
 
     <!--Card types-->
     <string name="type_enchantment">Enchantment</string>
@@ -53,6 +54,9 @@
     <string name="discover_subtypes">Subtypes</string>
     <string name="discover_sets">Sets</string>
 
+    <!--Home screen / DiscoverActivity content descriptions-->
+    <string name="group_cd">Browse <xliff:g id="cardGrouping">%1$s</xliff:g> cards.</string>
+
     <!--DiscoverActivity menu items-->
     <string name="search">Search</string>
     <string name="view_saved_searches">Starred Searches</string>
@@ -62,4 +66,5 @@
     <string name="tags_hint">Search&#8230;(e.g. planeswalker, goblin, etc.)</string>
     <string name="save_search_btn">Save Search</string>
 
+    <string name="api_base_url">http://magicapp.herokuapp.com</string>
 </resources>

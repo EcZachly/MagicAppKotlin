@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="card_colors_array">
-        <item>@string/color_black</item>
-        <item>@string/color_blue</item>
-        <item>@string/color_green</item>
-        <item>@string/color_red</item>
         <item>@string/color_white</item>
+        <item>@string/color_blue</item>
+        <item>@string/color_black</item>
+        <item>@string/color_red</item>
+        <item>@string/color_green</item>
     </array>
+
+    <integer-array name="discover_colors_array">
+        <item>@drawable/discover_group_white</item>
+        <item>@drawable/discover_group_blue</item>
+        <item>@drawable/discover_group_black</item>
+        <item>@drawable/discover_group_red</item>
+        <item>@drawable/discover_group_green</item>
+    </integer-array>
 
     <array name="card_rarities_array">
         <item>@string/rarity_common</item>
         <item>@string/rarity_uncommon</item>
         <item>@string/rarity_rare</item>
         <item>@string/rarity_mythic</item>
+        <item>@string/rarity_legendary</item>
     </array>
+
+    <integer-array name="discover_rarities_array">
+        <item>@drawable/discover_group_common</item>
+        <item>@drawable/discover_group_uncommon</item>
+        <item>@drawable/discover_group_rare</item>
+        <item>@drawable/discover_group_mythic</item>
+        <item>@drawable/discover_group_base</item>
+    </integer-array>
 
     <array name="card_types_array">
         <item>@string/type_enchantment</item>

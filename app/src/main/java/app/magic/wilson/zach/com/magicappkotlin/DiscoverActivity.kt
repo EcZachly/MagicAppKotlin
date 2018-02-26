@@ -6,8 +6,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
+import app.magic.wilson.zach.com.magicappkotlin.adapters.CardAdapter
 import app.magic.wilson.zach.com.magicappkotlin.adapters.DiscoverAdapter
+import app.magic.wilson.zach.com.magicappkotlin.api.getCards
+import app.magic.wilson.zach.com.magicappkotlin.models.Card
+import com.github.kittinunf.fuel.core.FuelManager
+import com.github.kittinunf.fuel.gson.responseObject
 import kotlinx.android.synthetic.main.activity_discover.*
+import kotlinx.android.synthetic.main.activity_search.*
 
 /**
  * An activity to discover new cards.
@@ -19,12 +25,10 @@ class DiscoverActivity : AppCompatActivity() {
         setContentView(R.layout.activity_discover)
 
 //        TODO("Get new cards from the server.  Ensures most updated information")
-        val newGroup = Array<String>(1, {"New"})
-        populateRecyclerViews(discover_new_cards, newGroup)
+        populateCards(discover_new_cards)
 
 //        TODO("Get recommended cards from the server")
-        val recommendedGroup = Array<String>(1, {"Recommended"})
-        populateRecyclerViews(discover_recommended_cards, recommendedGroup)
+        populateCards(discover_recommended_cards)
 
         val colorsGroup = resources.getStringArray(R.array.card_colors_array)
         populateRecyclerViews(discover_colors_cards, colorsGroup)
@@ -45,8 +49,8 @@ class DiscoverActivity : AppCompatActivity() {
 
     }
 
+    // Helper method to populate each category of card groupings
     private fun populateRecyclerViews(recyclerView: RecyclerView, array: Array<String>){
-
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
@@ -55,11 +59,32 @@ class DiscoverActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
     }
 
+    // Helper method to populate the categories that will display cards
+//    TODO("Set parameters for this method that will filter cards accordingly")
+    private fun populateCards(recyclerView: RecyclerView){
+//        TODO("Update the call to the server")
+        FuelManager.instance.apply {
+            basePath = resources.getString(R.string.api_base_url)
+        }
+
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+
+        recyclerView.layoutManager = linearLayoutManager
+        val activity = this
+        getCards(this,null, null).responseObject<List<Card>>{
+            _, _, result ->
+            val adapter = CardAdapter(activity, result.get())
+            recyclerView.adapter = adapter
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.discover, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    // TODO Redesign action bar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
 //            TODO("Implement search action")

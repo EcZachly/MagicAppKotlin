@@ -23,7 +23,7 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         FuelManager.instance.apply {
-            basePath = "http://magicapp.herokuapp.com"
+            basePath = resources.getString(R.string.api_base_url)
         }
 
         val linearLayoutManager = LinearLayoutManager(this)

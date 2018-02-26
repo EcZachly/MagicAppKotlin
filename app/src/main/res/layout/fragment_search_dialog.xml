@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_vertical_margin"
             android:button="@drawable/checkbox_colors"
-            android:buttonTint="@color/card_color_black" />
+            android:buttonTint="@color/cardColorBlackLight" />
 
         <CheckBox
             android:id="@+id/search_dlg_blue_chbx"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_vertical_margin"
             android:button="@drawable/checkbox_colors"
-            android:buttonTint="@color/card_color_blue" />
+            android:buttonTint="@color/cardColorBlueLight" />
 
         <CheckBox
             android:id="@+id/search_dlg_green_chbx"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_vertical_margin"
             android:button="@drawable/checkbox_colors"
-            android:buttonTint="@color/card_color_green" />
+            android:buttonTint="@color/cardColorGreenLight" />
 
         <CheckBox
             android:id="@+id/search_dlg_red_chbx"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_vertical_margin"
             android:button="@drawable/checkbox_colors"
-            android:buttonTint="@color/card_color_red" />
+            android:buttonTint="@color/cardColorRedLight" />
 
         <CheckBox
             android:id="@+id/search_dlg_white_chbx"
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_vertical_margin"
             android:button="@drawable/checkbox_colors"
-            android:buttonTint="@color/card_color_white" />
+            android:buttonTint="@color/cardColorWhiteLight" />
 
     </LinearLayout>
 
