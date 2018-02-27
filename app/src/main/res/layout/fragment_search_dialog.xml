@@ -1,0 +1,124 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="app.magic.wilson.zach.com.magicappkotlin.SearchDialogFragment">
+
+    <TextView
+        style="@style/search_dlg_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/discover_colors" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <!--TODO: Set checkbox content descriptions programmatically-->
+
+        <CheckBox
+            android:id="@+id/search_dlg_black_chbx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_vertical_margin"
+            android:button="@drawable/checkbox_colors"
+            android:buttonTint="@color/cardColorBlackLight" />
+
+        <CheckBox
+            android:id="@+id/search_dlg_blue_chbx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_vertical_margin"
+            android:button="@drawable/checkbox_colors"
+            android:buttonTint="@color/cardColorBlueLight" />
+
+        <CheckBox
+            android:id="@+id/search_dlg_green_chbx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_vertical_margin"
+            android:button="@drawable/checkbox_colors"
+            android:buttonTint="@color/cardColorGreenLight" />
+
+        <CheckBox
+            android:id="@+id/search_dlg_red_chbx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_vertical_margin"
+            android:button="@drawable/checkbox_colors"
+            android:buttonTint="@color/cardColorRedLight" />
+
+        <CheckBox
+            android:id="@+id/search_dlg_white_chbx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_vertical_margin"
+            android:button="@drawable/checkbox_colors"
+            android:buttonTint="@color/cardColorWhiteLight" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/search_dlg_rarity_lbl"
+        style="@style/search_dlg_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/discover_rarity"/>
+
+    <Switch
+        android:id="@+id/search_dlg_common_switch"
+        style="@style/search_dlg_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rarity_common"/>
+
+    <Switch
+        android:id="@+id/search_dlg_uncommon_switch"
+        style="@style/search_dlg_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rarity_uncommon"/>
+
+    <Switch
+        android:id="@+id/search_dlg_rare_switch"
+        style="@style/search_dlg_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rarity_rare"/>
+
+    <Switch
+        android:id="@+id/search_dlg_mythic_switch"
+        style="@style/search_dlg_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rarity_mythic"/>
+
+    <TextView
+        android:id="@+id/search_dlg_tags_lbl"
+        style="@style/search_dlg_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tags"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/standard_horizontal_margin"
+        android:layout_marginLeft="@dimen/standard_horizontal_margin"
+        android:layout_marginRight="@dimen/standard_horizontal_margin"
+        android:layout_marginStart="@dimen/standard_horizontal_margin"
+        android:hint="@string/tags_hint" />
+
+    <Button
+        style="@style/button_style"
+        android:id="@+id/search_dlg_save_search_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/save_search_btn"/>
+
+
+</LinearLayout>

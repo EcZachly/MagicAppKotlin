@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Global values-->
+    <dimen name="standard_vertical_margin">16dp</dimen>
+    <dimen name="standard_horizontal_margin">16dp</dimen>
+    <dimen name="small_vertical_margin">8dp</dimen>
+    <dimen name="small_horizontal_margin">8dp</dimen>
+
+    <!--DiscoverActivity values-->
+    <dimen name="discover_group_size">200dp</dimen>
+    <dimen name="discover_card_width">200dp</dimen>
+
+    <!--SearchDialog values-->
+    <dimen name="toggle_btn_stroke_width">4dp</dimen>
+    <dimen name="color_checkbox_size">48dp</dimen>
+
+    <!--Text sizes-->
+    <dimen name="discover_heading_size">24sp</dimen>
+    <dimen name="discover_lbl_size">16sp</dimen>
+</resources>
