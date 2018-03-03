@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import app.magic.wilson.zach.com.magicappkotlin.adapters.CardAdapter
 import app.magic.wilson.zach.com.magicappkotlin.adapters.DiscoverAdapter
 import app.magic.wilson.zach.com.magicappkotlin.api.getCards
@@ -13,7 +14,6 @@ import app.magic.wilson.zach.com.magicappkotlin.models.Card
 import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.gson.responseObject
 import kotlinx.android.synthetic.main.activity_discover.*
-import kotlinx.android.synthetic.main.activity_search.*
 
 /**
  * An activity to discover new cards.
@@ -74,7 +74,7 @@ class DiscoverActivity : AppCompatActivity() {
         val activity = this
         getCards(this,null, null).responseObject<List<Card>>{
             _, _, result ->
-            val adapter = CardAdapter(activity, result.get())
+            val adapter = CardAdapter(activity, result.get(), { card : Card -> cardClicked(card) })
             recyclerView.adapter = adapter
         }
     }
@@ -93,5 +93,9 @@ class DiscoverActivity : AppCompatActivity() {
             R.id.action_view_starred -> {}
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun cardClicked(card : Card) {
+        Toast.makeText(this, "Clicked: ${card.name}", Toast.LENGTH_LONG).show()
     }
 }

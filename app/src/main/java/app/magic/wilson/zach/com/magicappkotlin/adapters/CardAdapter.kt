@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
  * An adapter to display the Magic card images.
  */
 
-class CardAdapter(private var activity: Activity, private var cards: List<Card>): RecyclerView.Adapter<CardAdapter.ViewHolder>(){
+class CardAdapter(private var activity: Activity, private var cards: List<Card>, val clickListener: (Card) -> Unit): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return cards.size
@@ -28,25 +28,11 @@ class CardAdapter(private var activity: Activity, private var cards: List<Card>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        val card = cards[position]
-        // TODO("Set content descriptions to be the name of the card")
+        holder?.bind(activity, cards[position], clickListener)
+    }
 
-        // If the image(s) exist(s)
-        if(card.imageURLs != null && !card.imageURLs.isEmpty()) {
-            val image_list = card.imageURLs["en"].orEmpty()
-            val image_url: String
-            if (image_list.isNotEmpty()) {
-                image_url = image_list[0]
-            } else {
-                image_url = ""
-            }
-
-            Glide.with(activity)
-                    .load(image_url)
-                    .into(holder?.cardDisplayImage)
-        } else { // If the images do not exist
-            // TODO("Populate the ImageView with a custom missing image graphic")
-        }
+    override fun getItemId(i: Int): Long {
+        return i.toLong()
     }
 
     class ViewHolder(row: View?, imageView: ImageView) :RecyclerView.ViewHolder(row){
@@ -55,10 +41,27 @@ class CardAdapter(private var activity: Activity, private var cards: List<Card>)
         init {
             this.cardDisplayImage = imageView
         }
-    }
 
-    override fun getItemId(i: Int): Long {
-        return i.toLong()
-    }
+        fun bind(activity: Activity, card: Card, clickListener: (Card) -> Unit) {
 
+            val defaultImg = activity.getDrawable(R.drawable.magic_card_default)
+
+            var image_url = ""
+            if(card.imageURLs != null && !card.imageURLs.isEmpty()) {
+                val image_list = card.imageURLs["en"].orEmpty()
+                if (image_list.isNotEmpty()) {
+                    image_url = image_list[0]
+                }
+            }
+
+            Glide.with(activity)
+                    .load(image_url)
+                    .placeholder(defaultImg)
+                    .into(cardDisplayImage)
+
+            cardDisplayImage.contentDescription = activity.getString(R.string.card_name_cd, card.name)
+
+            itemView.setOnClickListener { clickListener(card)}
+        }
+    }
 }

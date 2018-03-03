@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_search.cardList
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
 import app.magic.wilson.zach.com.magicappkotlin.adapters.CardAdapter
 import app.magic.wilson.zach.com.magicappkotlin.api.getCards
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
@@ -33,10 +34,14 @@ class SearchActivity : AppCompatActivity() {
         clickForCards.setOnClickListener {
             getCards(this,"red", "mythic").responseObject<List<Card>>{
                 _, _, result ->
-                val adapter = CardAdapter(activity, result.get())
+                val adapter = CardAdapter(activity, result.get(), { card : Card -> cardClicked(card) })
                 cardList.adapter = adapter
             }
 
         }
+    }
+
+    private fun cardClicked(card : Card) {
+        Toast.makeText(this, "Clicked: ${card.name}", Toast.LENGTH_LONG).show()
     }
 }
