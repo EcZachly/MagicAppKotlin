@@ -33,6 +33,17 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="detail_heading">
+        <item name="android:textSize">@dimen/discover_heading_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/textLight</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:layout_marginTop">@dimen/standard_vertical_margin</item>
+        <item name="android:layout_marginBottom">@dimen/standard_vertical_margin</item>
+        <item name="android:layout_marginLeft">@dimen/standard_horizontal_margin</item>
+        <item name="android:layout_marginStart">@dimen/standard_horizontal_margin</item>
+    </style>
+
     <style name="search_dlg_heading">
         <item name="android:textSize">@dimen/discover_heading_size</item>
         <item name="android:layout_marginBottom">@dimen/standard_vertical_margin</item>
