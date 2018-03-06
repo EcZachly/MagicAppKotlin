@@ -32,6 +32,8 @@ class CardViewFragment : Fragment() {
         val json = arguments.getString(Keys.CARD_KEY)
         val card = Gson().fromJson<Card>(json, Card::class.java)
 
+        val position = arguments.getInt(Keys.POSITION_KEY)
+
         cardNameTv.text = card.name
 
         val defaultImg = activity.getDrawable(R.drawable.magic_card_default)
@@ -39,7 +41,7 @@ class CardViewFragment : Fragment() {
         if(card.imageURLs != null && !card.imageURLs.isEmpty()) {
             val imageList = card.imageURLs["en"].orEmpty()
             if (imageList.isNotEmpty()) {
-                imageUrl = imageList[0]
+                imageUrl = imageList[position % imageList.size]
             }
         }
 
@@ -55,12 +57,13 @@ class CardViewFragment : Fragment() {
 
     companion object {
 
-        fun newInstance(card: Card): CardViewFragment {
+        fun newInstance(card: Card, position: Int?): CardViewFragment {
 
             val args = Bundle()
             val jsonCard = Gson().toJson(card)
 
             args.putString(Keys.CARD_KEY, jsonCard)
+            args.putInt(Keys.POSITION_KEY, position?: 0)
 
             val fragment = CardViewFragment()
             fragment.arguments = args

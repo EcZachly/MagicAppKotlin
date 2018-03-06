@@ -15,13 +15,13 @@ import com.nshmura.recyclertablayout.RecyclerTabLayout
 /**
  * An adapter to display the preview images of different prints.
  */
+// TODO: Localize this so that you can get the cards for other languages than just EN
+class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager, private val card: Card): RecyclerTabLayout.Adapter<PrintThumbnailAdapter.ViewHolder>(viewPager) {
 
-class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager, private val cards: List<Card>): RecyclerTabLayout.Adapter<PrintThumbnailAdapter.ViewHolder>(viewPager) {
-
-    private val mAdapter = mViewPager.adapter as DetailCardPagerAdapter
+    private val mPrints = card.imageURLs
 
     override fun getItemCount(): Int {
-        return cards.size
+        return mPrints.orEmpty().get("en").orEmpty().size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
@@ -32,7 +32,7 @@ class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.bind(activity, cards[position])
+        holder?.bind(activity, position)
     }
 
     override fun getItemId(i: Int): Long {
@@ -46,20 +46,20 @@ class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager
             this.cardDisplayImage = imageView
         }
 
-        fun bind(activity: Activity, card: Card) {
+        fun bind(activity: Activity, position: Int) {
 
             val defaultImg = activity.getDrawable(R.drawable.magic_card_default)
 
-            var image_url = ""
+            var imageUrl = ""
             if(card.imageURLs != null && !card.imageURLs.isEmpty()) {
-                val image_list = card.imageURLs["en"].orEmpty()
-                if (image_list.isNotEmpty()) {
-                    image_url = image_list[0]
+                val imageList = card.imageURLs["en"].orEmpty()
+                if (imageList.isNotEmpty()) {
+                    imageUrl = imageList[position % imageList.size]
                 }
             }
 
             Glide.with(activity)
-                    .load(image_url)
+                    .load(imageUrl)
                     .placeholder(defaultImg)
                     .into(cardDisplayImage)
 

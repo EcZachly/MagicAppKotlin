@@ -11,17 +11,17 @@ import app.magic.wilson.zach.com.magicappkotlin.models.Card
  */
 
 // A value to inflate the size of the PagerAdapter to enable infinite scrolling
-private const val MAX_VALUE = 3
+private const val MAX_VALUE = 5
 
-class DetailCardPagerAdapter(fragmentManager: FragmentManager, private val cards: List<Card>) : FragmentStatePagerAdapter(fragmentManager) {
+class DetailCardPagerAdapter(fragmentManager: FragmentManager, private val card: Card) : FragmentStatePagerAdapter(fragmentManager) {
 
     override fun getItem(position: Int): Fragment {
-        return CardViewFragment.newInstance(cards[position % cards.size])
+        return CardViewFragment.newInstance(card, position % card.imageURLs.orEmpty().size)
     }
 
     override fun getCount(): Int {
         // Inflated with extra space to create the effect of infinite scrolling
-        return cards.size * MAX_VALUE
+        return card.imageURLs.orEmpty().size * MAX_VALUE
     }
 
     // Images are displayed instead of a title

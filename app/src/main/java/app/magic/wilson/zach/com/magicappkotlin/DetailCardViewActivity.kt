@@ -37,22 +37,13 @@ class DetailCardViewActivity : AppCompatActivity() {
     }
 
     private fun setCardPrintAdapter(card: Card){
-//        TODO("Set this up to get a list of cards that are print editions of the selected card")
-        FuelManager.instance.apply {
-            basePath = resources.getString(R.string.api_base_url)
-        }
+        cardViewPager = findViewById<ViewPager>(R.id.detail_card_vp)
 
-        getCards(this,null, null).responseObject<List<Card>>{
-            _, _, result ->
+        pagerAdapter = DetailCardPagerAdapter(supportFragmentManager, card)
+        cardViewPager.adapter = pagerAdapter
 
-            cardViewPager = findViewById<ViewPager>(R.id.detail_card_vp)
+        cardThumbsTabs = findViewById(R.id.detail_card_tabs)
 
-            pagerAdapter = DetailCardPagerAdapter(supportFragmentManager, result.get())
-            cardViewPager.adapter = pagerAdapter
-
-            cardThumbsTabs = findViewById(R.id.detail_card_tabs)
-
-            cardThumbsTabs.setUpWithAdapter(PrintThumbnailAdapter(this, cardViewPager, result.get()))
-        }
+        cardThumbsTabs.setUpWithAdapter(PrintThumbnailAdapter(this, cardViewPager, card))
     }
 }

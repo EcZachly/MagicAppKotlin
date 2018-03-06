@@ -6,4 +6,5 @@ package app.magic.wilson.zach.com.magicappkotlin.constants
 
 object Keys {
     val CARD_KEY = "card"
+    val POSITION_KEY = "position"
 }
