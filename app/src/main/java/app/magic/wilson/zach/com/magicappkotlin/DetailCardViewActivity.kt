@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import app.magic.wilson.zach.com.magicappkotlin.adapters.DetailCardPagerAdapter
+import app.magic.wilson.zach.com.magicappkotlin.adapters.PrintThumbnailAdapter
 import app.magic.wilson.zach.com.magicappkotlin.api.getCards
 import app.magic.wilson.zach.com.magicappkotlin.constants.Keys
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
@@ -50,9 +51,8 @@ class DetailCardViewActivity : AppCompatActivity() {
             cardViewPager.adapter = pagerAdapter
 
             cardThumbsTabs = findViewById(R.id.detail_card_tabs)
-            cardThumbsTabs.setUpWithViewPager(cardViewPager)
 
-            cardViewPager.currentItem = pagerAdapter.count / 2
+            cardThumbsTabs.setUpWithAdapter(PrintThumbnailAdapter(this, cardViewPager, result.get()))
         }
     }
 }

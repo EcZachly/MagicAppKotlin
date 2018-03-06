@@ -24,8 +24,9 @@ class DetailCardPagerAdapter(fragmentManager: FragmentManager, private val cards
         return cards.size * MAX_VALUE
     }
 
+    // Images are displayed instead of a title
     override fun getPageTitle(position: Int): CharSequence {
-        return " ${position % cards.size} "
+        return ""
     }
 
 }

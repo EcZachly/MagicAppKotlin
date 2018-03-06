@@ -16,6 +16,7 @@
     <com.nshmura.recyclertablayout.RecyclerTabLayout
         android:id="@+id/detail_card_tabs"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/detail_thumbnail_height" />
+        android:layout_height="@dimen/detail_thumbnail_height"
+        android:layout_marginTop="@dimen/standard_vertical_margin"/>
 
 </LinearLayout>
