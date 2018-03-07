@@ -27,21 +27,28 @@ class CardViewFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_card_view, container, false)
         val cardDisplayImage = view.findViewById<ImageView>(R.id.detail_card_image)
-        val cardNameTv = view.findViewById<TextView>(R.id.detail_card_name)
 
         val json = arguments.getString(Keys.CARD_KEY)
         val card = Gson().fromJson<Card>(json, Card::class.java)
 
         val position = arguments.getInt(Keys.POSITION_KEY)
 
-        cardNameTv.text = card.name
-
         val defaultImg = activity.getDrawable(R.drawable.magic_card_default)
         var imageUrl = ""
         if(card.imageURLs != null && !card.imageURLs.isEmpty()) {
             val imageList = card.imageURLs["en"].orEmpty()
             if (imageList.isNotEmpty()) {
-                imageUrl = imageList[position % imageList.size]
+
+                val imageIndex: Int
+                when (position){
+                // If the Fragment is being created for View at position 0, we want it to look like the last image in the list
+                    0 -> imageIndex = imageList.size - 1
+                // If the fragment is being created for View in the last position, we want it to look like the very first image in the list
+                    imageList.size + 1 -> imageIndex = 0
+                // All other images should be shifted by 1 because of the extra image in front
+                    else -> imageIndex = position - 1
+                }
+                imageUrl = imageList[imageIndex]
             }
         }
 

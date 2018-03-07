@@ -11,6 +11,7 @@
     <dimen name="discover_card_width">200dp</dimen>
 
     <dimen name="detail_thumbnail_height">100dp</dimen>
+    <dimen name="detail_thumbnail_alpha">.50</dimen>
 
     <!--SearchDialog values-->
     <dimen name="toggle_btn_stroke_width">4dp</dimen>
