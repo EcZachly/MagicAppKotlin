@@ -56,10 +56,17 @@
 
     <!--Home screen / DiscoverActivity content descriptions-->
     <string name="group_cd">Browse <xliff:g id="cardGrouping">%1$s</xliff:g> cards.</string>
+    <string name="card_name_cd">The Magic card, <xliff:g id="cardName">%1$s</xliff:g>.</string>
 
     <!--DiscoverActivity menu items-->
     <string name="search">Search</string>
     <string name="view_saved_searches">Starred Searches</string>
+
+    <!--DetailCardViewActivity labels-->
+    <string name="tab_editions">Editions</string>
+    <string name="tab_similar">Similar</string>
+    <string name="tab_recommended">Recommended</string>
+    <string name="tab_decks">Decks</string>
 
     <!--Search dialog field-->
     <string name="tags">Tags</string>

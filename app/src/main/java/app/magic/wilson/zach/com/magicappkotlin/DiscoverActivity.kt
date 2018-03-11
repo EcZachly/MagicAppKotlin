@@ -1,5 +1,6 @@
 package app.magic.wilson.zach.com.magicappkotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -9,11 +10,13 @@ import android.view.MenuItem
 import app.magic.wilson.zach.com.magicappkotlin.adapters.CardAdapter
 import app.magic.wilson.zach.com.magicappkotlin.adapters.DiscoverAdapter
 import app.magic.wilson.zach.com.magicappkotlin.api.getCards
+import app.magic.wilson.zach.com.magicappkotlin.constants.Keys
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
 import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.gson.responseObject
 import kotlinx.android.synthetic.main.activity_discover.*
-import kotlinx.android.synthetic.main.activity_search.*
+import com.google.gson.Gson
+
 
 /**
  * An activity to discover new cards.
@@ -74,7 +77,7 @@ class DiscoverActivity : AppCompatActivity() {
         val activity = this
         getCards(this,null, null).responseObject<List<Card>>{
             _, _, result ->
-            val adapter = CardAdapter(activity, result.get())
+            val adapter = CardAdapter(activity, result.get(), { card : Card -> cardClicked(card) })
             recyclerView.adapter = adapter
         }
     }
@@ -93,5 +96,14 @@ class DiscoverActivity : AppCompatActivity() {
             R.id.action_view_starred -> {}
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun cardClicked(card : Card) {
+        val gson = Gson()
+        val json = gson.toJson(card)
+
+        val intent = Intent(this, DetailCardViewActivity::class.java)
+        intent.putExtra(Keys.CARD_KEY, json)
+        startActivity(intent)
     }
 }
