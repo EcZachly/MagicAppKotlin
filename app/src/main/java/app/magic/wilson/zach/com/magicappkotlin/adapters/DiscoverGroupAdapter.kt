@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
  * An adapter to display the different groupings of card suggestions on the Discover screen.
  */
 
-class DiscoverAdapter(private var activity: Activity, private var groups: Array<String>): RecyclerView.Adapter<DiscoverAdapter.ViewHolder>(){
+class DiscoverGroupAdapter(private var activity: Activity, private var groups: Array<String>): RecyclerView.Adapter<DiscoverGroupAdapter.ViewHolder>(){
 
     override fun getItemCount(): Int {
         return groups.size

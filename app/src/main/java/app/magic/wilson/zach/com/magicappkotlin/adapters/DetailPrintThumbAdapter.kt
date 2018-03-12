@@ -1,6 +1,6 @@
 package app.magic.wilson.zach.com.magicappkotlin.adapters
 
-import android.app.Activity
+import android.content.Context
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -16,7 +16,7 @@ import java.util.*
 /**
  * An adapter to display the preview images of different prints.
  */
-class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager, private val card: Card): RecyclerTabLayout.Adapter<PrintThumbnailAdapter.ViewHolder>(viewPager) {
+class DetailPrintThumbAdapter(private val context: Context, viewPager: ViewPager, private val card: Card): RecyclerTabLayout.Adapter<DetailPrintThumbAdapter.ViewHolder>(viewPager) {
 
     private val mPrints: List<String>
 
@@ -26,7 +26,7 @@ class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager
         val deviceLanguage = Locale.getDefault().language
 
         // validLanguages is a predetermined list of languages the app has data for and can support
-        val validLanguages = activity.resources.getStringArray(R.array.card_languages_array)
+        val validLanguages = context.resources.getStringArray(R.array.card_languages_array)
 
         // if the language is supported, then filter the card results to that language.
         // Otherwise default to English
@@ -48,7 +48,7 @@ class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         holder?.setIsRecyclable(false)
-        holder?.bind(activity, mPrints, position)
+        holder?.bind(context, mPrints, position)
     }
 
     override fun getItemId(i: Int): Long {
@@ -58,9 +58,9 @@ class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager
     inner class ViewHolder(row: View?, imageView: ImageView) : RecyclerView.ViewHolder(row){
         val cardDisplayImage = imageView
 
-        fun bind(activity: Activity, prints: List<String>, position: Int) {
+        fun bind(context: Context, prints: List<String>, position: Int) {
 
-                val defaultImg = activity.getDrawable(R.drawable.magic_card_default)
+                val defaultImg = context.getDrawable(R.drawable.magic_card_default)
 
                 var imageUrl = ""
                 if (!prints.isEmpty()) {
@@ -74,12 +74,12 @@ class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager
                     }
                 }
 
-                Glide.with(activity)
+                Glide.with(context)
                         .load(imageUrl)
                         .placeholder(defaultImg)
                         .into(cardDisplayImage)
 
-                cardDisplayImage.contentDescription = activity.getString(R.string.card_name_cd, card.name)
+                cardDisplayImage.contentDescription = context.getString(R.string.card_name_cd, card.name)
 
                 cardDisplayImage.setOnClickListener { viewPager.currentItem = adapterPosition }
         }
