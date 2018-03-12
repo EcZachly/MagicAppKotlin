@@ -16,4 +16,11 @@
         android:title="@string/view_saved_searches"
         app:showAsAction="ifRoom" />
 
+    <!--TODO: Move this somewhere else. Placed here for testing/building purposes-->
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="101"
+        android:title="@string/settings"
+        app:showAsAction="never" />
+
 </menu>

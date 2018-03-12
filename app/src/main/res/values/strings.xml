@@ -33,7 +33,7 @@
     <string name="type_scheme">Scheme</string>
     <string name="type_phenomenon">Phenomenon</string>
 
-    <!--Card languages-->
+    <!--Card languages abbreviation. Do NOT translate.-->
     <string name="language_en">en</string>
     <string name="language_de">de</string>
     <string name="language_ko">ko</string>
@@ -44,6 +44,18 @@
     <string name="language_jp">jp</string>
     <string name="language_cn">cn</string>
     <string name="language_ru">ru</string>
+
+    <!--Card languages. Do NOT translate.-->
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_language_ko">한국어</string>
+    <string name="settings_language_fr">Français</string>
+    <string name="settings_language_it">Italiano</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_pt">Português</string>
+    <string name="settings_language_jp">日本語</string>
+    <string name="settings_language_cn">中文</string>
+    <string name="settings_language_ru">Pусский</string>
 
     <!--Home screen / DiscoverActivity labels-->
     <string name="discover_new">New</string>
@@ -72,6 +84,11 @@
     <string name="tags">Tags</string>
     <string name="tags_hint">Search&#8230;(e.g. planeswalker, goblin, etc.)</string>
     <string name="save_search_btn">Save Search</string>
+
+    <!--Settings fields-->
+    <string name="settings">Settings</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_key">language</string>
 
     <string name="api_base_url">http://magicapp.herokuapp.com</string>
 </resources>

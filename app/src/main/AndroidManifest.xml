@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchActivity" />
-        <activity android:name=".DetailCardViewActivity"></activity>
+        <activity android:name=".DetailCardViewActivity" />
+        <activity android:name=".activities.SettingsActivity"
+            android:label="@string/settings"/>
     </application>
 
 </manifest>

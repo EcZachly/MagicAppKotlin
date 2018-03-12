@@ -63,4 +63,17 @@
         <item>@string/language_cn</item>
         <item>@string/language_ru</item>
     </array>
+
+    <array name="settings_languages_array">
+        <item>@string/settings_language_en</item>
+        <item>@string/settings_language_de</item>
+        <item>@string/settings_language_ko</item>
+        <item>@string/settings_language_fr</item>
+        <item>@string/settings_language_it</item>
+        <item>@string/settings_language_es</item>
+        <item>@string/settings_language_pt</item>
+        <item>@string/settings_language_jp</item>
+        <item>@string/settings_language_cn</item>
+        <item>@string/settings_language_ru</item>
+    </array>
 </resources>

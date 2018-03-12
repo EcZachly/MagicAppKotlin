@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
+import app.magic.wilson.zach.com.magicappkotlin.activities.SettingsActivity
 import app.magic.wilson.zach.com.magicappkotlin.adapters.CardAdapter
 import app.magic.wilson.zach.com.magicappkotlin.adapters.DiscoverAdapter
 import app.magic.wilson.zach.com.magicappkotlin.api.getCards
@@ -94,6 +95,11 @@ class DiscoverActivity : AppCompatActivity() {
             R.id.action_search -> {}
 //            TODO("Implement view saved searches action")
             R.id.action_view_starred -> {}
+//            TODO("Remove this action from this menu.  Placed here for testing/building purposes only.")
+            R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
