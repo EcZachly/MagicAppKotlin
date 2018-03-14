@@ -3,6 +3,7 @@ package app.magic.wilson.zach.com.magicappkotlin
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.preference.PreferenceManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
@@ -17,16 +18,21 @@ import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.gson.responseObject
 import kotlinx.android.synthetic.main.activity_discover.*
 import com.google.gson.Gson
+import java.util.*
 
 
 /**
  * An activity to discover new cards.
  */
-
+// TODO: Update all card images when the language settings change
 class DiscoverActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_discover)
+
+        // The first thing we want to do is detect the language and save the information to SharedPreferences
+        // so we can filter card images by language
+        detectLanguage()
 
 //        TODO("Get new cards from the server.  Ensures most updated information")
         populateCards(discover_new_cards)
@@ -80,6 +86,29 @@ class DiscoverActivity : AppCompatActivity() {
             _, _, result ->
             val adapter = CardAdapter(activity, result.get(), { card : Card -> cardClicked(card) })
             recyclerView.adapter = adapter
+        }
+    }
+
+    private fun detectLanguage(){
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+
+        // If the user has not set their language preferences, detect what language preferences to use
+        if (sharedPreferences.getString(getString(R.string.settings_language_key), "").isEmpty()) {
+            // deviceLanguage is the language code
+            val deviceLanguage = Locale.getDefault().language
+
+            // validLanguages is a predetermined list of languages the app has data for and can support
+            val validLanguages = resources.getStringArray(R.array.card_languages_array)
+
+            // if the language is supported, then filter the card results to that language.
+            // Otherwise default to English
+            val filterLanguage = if (validLanguages.contains(deviceLanguage)) deviceLanguage else getString(R.string.language_en)
+
+            // Save the language to sharedPreferences so we can use it to access the correct card images
+            with (sharedPreferences.edit()) {
+                putString(getString(R.string.settings_language_key), filterLanguage)
+                commit()
+            }
         }
     }
 

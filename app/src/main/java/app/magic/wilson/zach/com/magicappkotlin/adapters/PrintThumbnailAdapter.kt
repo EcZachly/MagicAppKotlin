@@ -2,6 +2,7 @@ package app.magic.wilson.zach.com.magicappkotlin.adapters
 
 import android.app.Activity
 import android.support.v4.view.ViewPager
+import android.support.v7.preference.PreferenceManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,6 @@ import app.magic.wilson.zach.com.magicappkotlin.R
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
 import com.bumptech.glide.Glide
 import com.nshmura.recyclertablayout.RecyclerTabLayout
-import java.util.*
 
 /**
  * An adapter to display the preview images of different prints.
@@ -21,16 +21,8 @@ class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager
     private val mPrints: List<String>
 
     init {
-        // TODO: Set the language in shared preferences so we don't have to recheck it
-        // deviceLanguage is the language code
-        val deviceLanguage = Locale.getDefault().language
-
-        // validLanguages is a predetermined list of languages the app has data for and can support
-        val validLanguages = activity.resources.getStringArray(R.array.card_languages_array)
-
-        // if the language is supported, then filter the card results to that language.
-        // Otherwise default to English
-        val filterLanguage = if (validLanguages.contains(deviceLanguage)) deviceLanguage else "en"
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
+        val filterLanguage = sharedPreferences.getString(activity.getString(R.string.settings_language_key), activity.getString(R.string.language_en))
 
         mPrints = card.imageURLs.orEmpty()[filterLanguage].orEmpty()
     }

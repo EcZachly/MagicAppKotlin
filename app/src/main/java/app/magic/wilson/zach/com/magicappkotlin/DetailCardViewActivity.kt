@@ -39,7 +39,7 @@ class DetailCardViewActivity : AppCompatActivity() {
     private fun setCardPrintAdapter(card: Card){
         cardViewPager = findViewById<ViewPager>(R.id.detail_card_vp)
 
-        pagerAdapter = DetailCardPagerAdapter(supportFragmentManager, card)
+        pagerAdapter = DetailCardPagerAdapter(this, supportFragmentManager, card)
         cardViewPager.adapter = pagerAdapter
 
         cardThumbsTabs = findViewById(R.id.detail_card_tabs)

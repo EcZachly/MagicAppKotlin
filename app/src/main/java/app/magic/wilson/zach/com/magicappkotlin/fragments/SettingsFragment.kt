@@ -14,12 +14,7 @@ import app.magic.wilson.zach.com.magicappkotlin.R
 /**
  * A Fragment to display the app settings screen.
  */
-class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        preferenceScreen.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
-    }
+class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeListener {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.pref_app_settings)
@@ -31,26 +26,23 @@ class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeLis
                 setPreferenceSummary(pref, value)
             }
         }
-
-        val preference = findPreference(getString(R.string.settings_language_key))
-        preference.onPreferenceChangeListener = this
     }
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
         val preference = findPreference(key)
         if (preference != null){
-            val value = sharedPreferences?.getString(preference.key, "")
+            val value = sharedPreferences.getString(preference.key, "")
             setPreferenceSummary(preference, value)
         }
     }
 
-    override fun onPreferenceChange(preference: Preference?, value: Any?): Boolean {
-        // Required override method.  No need to make changes until we add more preferences.
-        return true
+    override fun onResume() {
+        super.onResume()
+        preferenceScreen.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onPause() {
+        super.onPause()
         preferenceScreen.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
     }
 
