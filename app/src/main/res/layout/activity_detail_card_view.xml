@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="app.magic.wilson.zach.com.magicappkotlin.DetailCardViewActivity">
+    tools:context="app.magic.wilson.zach.com.magicappkotlin.activities.DetailCardViewActivity">
 
     <TextView
         android:id="@+id/detail_card_name"

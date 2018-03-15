@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 
 import app.magic.wilson.zach.com.magicappkotlin.R
 import app.magic.wilson.zach.com.magicappkotlin.constants.Keys
@@ -19,7 +18,7 @@ import com.google.gson.Gson
 /**
  * A Fragment to display the Card in the DetailCardViewActivity.
  */
-class CardViewFragment : Fragment() {
+class DetailCardPrintFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +63,7 @@ class CardViewFragment : Fragment() {
 
     companion object {
 
-        fun newInstance(card: Card, position: Int?): CardViewFragment {
+        fun newInstance(card: Card, position: Int?): DetailCardPrintFragment {
 
             val args = Bundle()
             val jsonCard = Gson().toJson(card)
@@ -72,7 +71,7 @@ class CardViewFragment : Fragment() {
             args.putString(Keys.CARD_KEY, jsonCard)
             args.putInt(Keys.POSITION_KEY, position?: 0)
 
-            val fragment = CardViewFragment()
+            val fragment = DetailCardPrintFragment()
             fragment.arguments = args
 
             return fragment

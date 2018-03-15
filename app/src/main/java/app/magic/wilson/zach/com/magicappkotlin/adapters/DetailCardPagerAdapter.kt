@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v7.preference.PreferenceManager
 import app.magic.wilson.zach.com.magicappkotlin.R
-import app.magic.wilson.zach.com.magicappkotlin.fragments.CardViewFragment
+import app.magic.wilson.zach.com.magicappkotlin.fragments.DetailCardPrintFragment
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
 
 /**
@@ -21,7 +21,7 @@ class DetailCardPagerAdapter(activity: Activity, fragmentManager: FragmentManage
     private val mImagesList = card.imageURLs.orEmpty()[filterLanguage]
 
     override fun getItem(position: Int): Fragment {
-        return CardViewFragment.newInstance(card, position)
+        return DetailCardPrintFragment.newInstance(card, position)
     }
 
     // Add extra Fragment on either side of real data to loop scrolling

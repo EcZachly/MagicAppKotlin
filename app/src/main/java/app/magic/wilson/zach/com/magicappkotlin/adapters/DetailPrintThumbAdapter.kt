@@ -1,6 +1,7 @@
 package app.magic.wilson.zach.com.magicappkotlin.adapters
 
 import android.app.Activity
+import android.content.Context
 import android.support.v4.view.ViewPager
 import android.support.v7.preference.PreferenceManager
 import android.support.v7.widget.RecyclerView
@@ -16,7 +17,7 @@ import com.nshmura.recyclertablayout.RecyclerTabLayout
 /**
  * An adapter to display the preview images of different prints.
  */
-class PrintThumbnailAdapter(private val activity: Activity, viewPager: ViewPager, private val card: Card): RecyclerTabLayout.Adapter<PrintThumbnailAdapter.ViewHolder>(viewPager) {
+class DetailPrintThumbAdapter(private val activity: Activity, viewPager: ViewPager, private val card: Card): RecyclerTabLayout.Adapter<DetailPrintThumbAdapter.ViewHolder>(viewPager) {
 
     private val mPrints: List<String>
 

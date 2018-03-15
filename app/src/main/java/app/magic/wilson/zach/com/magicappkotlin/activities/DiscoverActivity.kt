@@ -1,4 +1,4 @@
-package app.magic.wilson.zach.com.magicappkotlin
+package app.magic.wilson.zach.com.magicappkotlin.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
-import app.magic.wilson.zach.com.magicappkotlin.activities.SettingsActivity
+import app.magic.wilson.zach.com.magicappkotlin.R
 import app.magic.wilson.zach.com.magicappkotlin.adapters.CardAdapter
-import app.magic.wilson.zach.com.magicappkotlin.adapters.DiscoverAdapter
+import app.magic.wilson.zach.com.magicappkotlin.adapters.DiscoverGroupAdapter
 import app.magic.wilson.zach.com.magicappkotlin.api.getCards
 import app.magic.wilson.zach.com.magicappkotlin.constants.Keys
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
@@ -24,7 +24,6 @@ import java.util.*
 /**
  * An activity to discover new cards.
  */
-// TODO: Update all card images when the language settings change
 class DiscoverActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +64,7 @@ class DiscoverActivity : AppCompatActivity() {
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
         recyclerView.layoutManager = linearLayoutManager
-        val adapter = DiscoverAdapter(this, array)
+        val adapter = DiscoverGroupAdapter(this, array)
         recyclerView.adapter = adapter
     }
 

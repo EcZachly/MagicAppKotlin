@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DiscoverActivity">
+        <activity android:name=".activities.DiscoverActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchActivity" />
-        <activity android:name=".DetailCardViewActivity" />
+        <activity android:name=".activities.DetailCardViewActivity" />
         <activity android:name=".activities.SettingsActivity"
             android:label="@string/settings"/>
     </application>
