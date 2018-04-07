@@ -6,13 +6,15 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.Toast
 
 import app.magic.wilson.zach.com.magicappkotlin.R
 import app.magic.wilson.zach.com.magicappkotlin.constants.Keys
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
-import com.bumptech.glide.Glide
 import com.google.gson.Gson
+
+// TODO: Viewpager is broken.  does not display different prints in card image area
+// TODO: The scroll logic is all messed up.  take a look at the print order logic from looped/infinite scrolling
 
 
 /**
@@ -20,45 +22,60 @@ import com.google.gson.Gson
  */
 class DetailCardPrintFragment : Fragment() {
 
+    /**
+     * Whether or not we're showing the back of the card (otherwise showing the front).
+     */
+    private var mShowingBack = false
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_card_view, container, false)
-        val cardDisplayImage = view.findViewById<ImageView>(R.id.detail_card_image)
+        val view = inflater.inflate(R.layout.fragment_card_flip_view, container, false)
 
-        val json = arguments.getString(Keys.CARD_KEY)
-        val card = Gson().fromJson<Card>(json, Card::class.java)
+        if (savedInstanceState == null) {
 
-        val position = arguments.getInt(Keys.POSITION_KEY)
+            val frontFragment = CardFrontFragment()
+            frontFragment.arguments = arguments
 
-        val defaultImg = activity.getDrawable(R.drawable.magic_card_default)
-        var imageUrl = ""
-        if(card.imageURLs != null && !card.imageURLs.isEmpty()) {
-            val imageList = card.imageURLs["en"].orEmpty()
-            if (imageList.isNotEmpty()) {
+            fragmentManager
+                    .beginTransaction()
+                    .add(R.id.card_flip_container, frontFragment)
+                    .commit()
+        }
+        setCardImgClickListener(view)
+        return view
+    }
 
-                val imageIndex: Int
-                when (position){
-                // If the Fragment is being created for View at position 0, we want it to look like the last image in the list
-                    0 -> imageIndex = imageList.size - 1
-                // If the fragment is being created for View in the last position, we want it to look like the very first image in the list
-                    imageList.size + 1 -> imageIndex = 0
-                // All other images should be shifted by 1 because of the extra image in front
-                    else -> imageIndex = position - 1
-                }
-                imageUrl = imageList[imageIndex]
-            }
+    fun setCardImgClickListener(cardImageView: View){
+        cardImageView.setOnClickListener {
+            Toast.makeText(context, "card was clicked", Toast.LENGTH_SHORT).show()
+            flipCard()
+            // TODO: After flip, fade card away and display card information as text
+        }
+    }
+
+    private fun flipCard() {
+        if (mShowingBack) {
+            fragmentManager.popBackStack()
+            mShowingBack = false
+            return
         }
 
-        Glide.with(this)
-                .load(imageUrl)
-                .placeholder(defaultImg)
-                .into(cardDisplayImage)
+        // Flip the card to the back
+        mShowingBack = true
 
-        cardDisplayImage.contentDescription = getString(R.string.card_name_cd, card.name)
-
-        return view
+        // Add the back of card fragment and animate it so that the card looks like it was flipped
+        fragmentManager
+                .beginTransaction()
+                .setCustomAnimations(
+                        R.animator.card_flip_right_in,
+                        R.animator.card_flip_right_out,
+                        R.animator.card_flip_left_in,
+                        R.animator.card_flip_left_out)
+                .replace(R.id.card_flip_container, CardBackFragment())
+                .addToBackStack(null)
+                .commit()
     }
 
     companion object {
@@ -77,5 +94,4 @@ class DetailCardPrintFragment : Fragment() {
             return fragment
         }
     }
-
 }
