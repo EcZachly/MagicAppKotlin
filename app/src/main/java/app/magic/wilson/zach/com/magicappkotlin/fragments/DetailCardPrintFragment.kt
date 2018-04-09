@@ -13,10 +13,6 @@ import app.magic.wilson.zach.com.magicappkotlin.constants.Keys
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
 import com.google.gson.Gson
 
-// TODO: Viewpager is broken.  does not display different prints in card image area
-// TODO: The scroll logic is all messed up.  take a look at the print order logic from looped/infinite scrolling
-
-
 /**
  * A Fragment to display the Card in the DetailCardViewActivity.
  */
@@ -38,7 +34,7 @@ class DetailCardPrintFragment : Fragment() {
             val frontFragment = CardFrontFragment()
             frontFragment.arguments = arguments
 
-            fragmentManager
+            childFragmentManager
                     .beginTransaction()
                     .add(R.id.card_flip_container, frontFragment)
                     .commit()
@@ -57,7 +53,7 @@ class DetailCardPrintFragment : Fragment() {
 
     private fun flipCard() {
         if (mShowingBack) {
-            fragmentManager.popBackStack()
+            childFragmentManager.popBackStack()
             mShowingBack = false
             return
         }
@@ -66,7 +62,7 @@ class DetailCardPrintFragment : Fragment() {
         mShowingBack = true
 
         // Add the back of card fragment and animate it so that the card looks like it was flipped
-        fragmentManager
+        childFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(
                         R.animator.card_flip_right_in,
