@@ -17,11 +17,8 @@ import com.google.gson.Gson
  */
 class DetailCardPrintFragment : Fragment() {
 
-    /**
-     * Whether or not we're showing the back of the card (otherwise showing the front).
-     */
+    // Whether or not we're showing the back of the card (otherwise showing the front)
     private var mShowingBack = false
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -45,13 +42,14 @@ class DetailCardPrintFragment : Fragment() {
     fun setCardImgClickListener(cardImageView: View){
         cardImageView.setOnClickListener {
             flipCard()
-            // TODO: After flip, fade card away and display card information as text
         }
     }
 
     private fun flipCard() {
         if (mShowingBack) {
-            childFragmentManager.popBackStack()
+
+            val fragment: CardBackFragment = childFragmentManager.findFragmentById(R.id.card_flip_container) as CardBackFragment
+            fragment.flipBack(childFragmentManager)
             mShowingBack = false
             return
         }

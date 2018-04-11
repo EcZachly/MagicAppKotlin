@@ -5,6 +5,8 @@
     <dimen name="standard_horizontal_margin">16dp</dimen>
     <dimen name="small_vertical_margin">8dp</dimen>
     <dimen name="small_horizontal_margin">8dp</dimen>
+    <dimen name="large_vertical_margin">28dp</dimen>
+    <dimen name="large_horizontal_margin">28dp</dimen>
 
     <!--DiscoverActivity values-->
     <dimen name="discover_group_size">200dp</dimen>
