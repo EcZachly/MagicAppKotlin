@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 
 import app.magic.wilson.zach.com.magicappkotlin.R
 import app.magic.wilson.zach.com.magicappkotlin.constants.Keys
@@ -45,7 +44,6 @@ class DetailCardPrintFragment : Fragment() {
 
     fun setCardImgClickListener(cardImageView: View){
         cardImageView.setOnClickListener {
-            Toast.makeText(context, "card was clicked", Toast.LENGTH_SHORT).show()
             flipCard()
             // TODO: After flip, fade card away and display card information as text
         }

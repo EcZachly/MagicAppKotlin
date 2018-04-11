@@ -2,6 +2,7 @@ package app.magic.wilson.zach.com.magicappkotlin.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,8 +30,12 @@ class CardFrontFragment : Fragment() {
 
         val defaultImg = activity.getDrawable(R.drawable.magic_card_default)
         var imageUrl = ""
+
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
+        val filterLanguage = sharedPreferences.getString(activity.getString(R.string.settings_language_key), activity.getString(R.string.language_en))
+
         if(card.imageURLs != null && !card.imageURLs.isEmpty()) {
-            val imageList = card.imageURLs["en"].orEmpty()
+            val imageList = card.imageURLs[filterLanguage].orEmpty()
             if (imageList.isNotEmpty()) {
 
                 val imageIndex: Int
