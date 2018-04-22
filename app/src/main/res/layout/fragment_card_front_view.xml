@@ -1,0 +1,10 @@
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detail_card_image_front"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/small_horizontal_margin"
+    android:layout_marginLeft="@dimen/small_horizontal_margin"
+    android:layout_marginRight="@dimen/small_horizontal_margin"
+    android:layout_marginStart="@dimen/small_horizontal_margin"
+    android:adjustViewBounds="true"
+    android:contentDescription="@null" />

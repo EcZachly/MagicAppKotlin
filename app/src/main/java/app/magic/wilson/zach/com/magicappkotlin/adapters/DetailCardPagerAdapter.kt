@@ -10,7 +10,7 @@ import app.magic.wilson.zach.com.magicappkotlin.fragments.DetailCardPrintFragmen
 import app.magic.wilson.zach.com.magicappkotlin.models.Card
 
 /**
- * An Adapter to display the CardViewFragments for the DetailCardViewActivity.
+ * An Adapter to display the DetailCardPrintFragments for the DetailCardViewActivity.
  */
 
 class DetailCardPagerAdapter(activity: Activity, fragmentManager: FragmentManager, private val card: Card) : FragmentStatePagerAdapter(fragmentManager) {

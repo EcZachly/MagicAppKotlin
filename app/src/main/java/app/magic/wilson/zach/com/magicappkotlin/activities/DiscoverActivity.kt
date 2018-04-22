@@ -33,12 +33,13 @@ class DiscoverActivity : AppCompatActivity() {
         // so we can filter card images by language
         detectLanguage()
 
+//        TODO("Issue: App is not currently capable of functioning without internet connectivity.  Crash results of any API calls.")
 //        TODO("Get new cards from the server.  Ensures most updated information")
         populateCards(discover_new_cards)
 
 //        TODO("Get recommended cards from the server")
         populateCards(discover_recommended_cards)
-
+//
         val colorsGroup = resources.getStringArray(R.array.card_colors_array)
         populateRecyclerViews(discover_colors_cards, colorsGroup)
 
